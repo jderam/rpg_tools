@@ -2,6 +2,8 @@ from flask import Flask
 import assh_char
 import td_char
 import gamma5_char
+import maze_rats_char
+
 
 app = Flask(__name__)
 
@@ -25,6 +27,11 @@ def tiny_dungeon_character():
 @app.route("/gamma5/json")
 def gamma5_character():
     return gamma5_char.PlayerCharacter().to_dict()
+
+
+@app.route("/maze_rats/json")
+def maze_rats_character():
+    return maze_rats_char.PlayerCharacter().to_dict()
 
 
 

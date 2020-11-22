@@ -213,36 +213,7 @@ class PlayerCharacter:
 
 
 if __name__ == '__main__':
-    my_pc = PlayerCharacter(magician_spell_src='dying_earth')
-    # print(f"Class: {my_pc.char_class}")
-    # print(f"Alignment: {my_pc.alignment}")
-    # print(f"Hit Points: {my_pc.hp}")
-    # print(f"Fighting Ability: {mod_to_str(my_pc.fa)}")
-    # print()
-    # print(f"Armor Worn: {my_pc.armor}")
-    # print(f"AC: {my_pc.ac}   DR: {my_pc.dr}   MV: {my_pc.mv}")
-    # print()
-    # print(f"Abilities: {my_pc.abilities}")
-    # print(f"Best Stat: {my_pc.best_stat}")
-    # print(f"Stats Ranked: {my_pc.stats_ranked}")
-    # for k in my_pc.ability_mods.keys():
-    #     print(f"{k}: {my_pc.abilities[k]}")
-    #     for i in range(len(my_pc.ability_mods[k])):
-    #         print(f"   {adj_descriptions[k]['short'][i]}: {my_pc.ability_mods[k][i]}")
-    #     print()
-    # print(f"Saving Throw: {my_pc.base_save}")
-    # for k, v in my_pc.save_mods.items():
-    #     print(f"   {k}: {v}")
-    # print()
-    # print(f"Spells: {my_pc.spell_list}")
-    # print()
-    # print(f"Class Abilities: {list(my_pc.char_info['Class Abilities'])}")
-    # if my_pc.char_class == 'Thief':
-    #     print(my_pc.char_info['Class Abilities']['Thief Abilities'])
-    #     for k, v in my_pc.char_info['Class Abilities']['Thief Abilities'].items():
-    #         print(f"{k}{dot_pad(k,20)}{v}:12")
     from pprint import pprint
+    my_pc = PlayerCharacter(magician_spell_src='dying_earth')
     pprint(my_pc.to_dict())
-    # print()
-    # print(my_pc.to_json())
-    # print()
+
