@@ -71,7 +71,7 @@ items = [
 ]
 
 starting_gear = [
-    'Light Armor (AC 6)',
+    'Light Armor (AC 7)',
 ]
 
 light_weapons = [
