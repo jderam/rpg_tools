@@ -214,6 +214,6 @@ class PlayerCharacter:
 
 if __name__ == '__main__':
     from pprint import pprint
-    my_pc = PlayerCharacter(magician_spell_src='dying_earth')
+    my_pc = PlayerCharacter()
     pprint(my_pc.to_dict())
 
