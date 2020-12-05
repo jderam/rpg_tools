@@ -20,7 +20,7 @@ def assh_character():
 
 
 @app.route("/assh/dying-earth/json")
-def assh_character():
+def assh_de_character():
     pc_json = assh_char.PlayerCharacter(magician_spell_src='dying_earth').to_dict()
     return pc_json
 
