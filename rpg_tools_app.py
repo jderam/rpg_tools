@@ -15,6 +15,12 @@ def root_test():
 
 @app.route("/assh/json")
 def assh_character():
+    pc_json = assh_char.PlayerCharacter().to_dict()
+    return pc_json
+
+
+@app.route("/assh/dying-earth/json")
+def assh_character():
     pc_json = assh_char.PlayerCharacter(magician_spell_src='dying_earth').to_dict()
     return pc_json
 
