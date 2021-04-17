@@ -12,8 +12,8 @@ run: ## Run the docker container
 
 deploy: build run ## Build and run docker container
 
-stop: ## Stop running container
-	@docker stop $(docker ps | grep python-rpg-tools-app | cut -d" " -f1)
+stop: ## Stop running container (not working???)
+	@docker stop $(docker ps | grep python-rpg-tools-app | cut -d' ' -f1)
 
 test: 
 	@echo "Not set up yet"
@@ -26,7 +26,8 @@ format: ## Format python code using black
 	@echo "Do nothing for now"
 
 gen-requirements: ## Generate a new requirements.txt file
-	@pip freeze | sed -e 's/==/>=/g' | grep -v pyspark > requirements.txt
+	# @pip freeze | sed -e 's/==/>=/g' | grep -v pyspark > requirements.txt
+	@pip-compile requirements.in > requirements.txt
 
 help: ## Generate and display help info on make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
