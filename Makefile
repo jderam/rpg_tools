@@ -2,7 +2,7 @@ SHELL := bash
 .DEFAULT_GOAL := help
 OS := $(shell uname)
 
-.PHONY: help build run deploy stop test lint format gen-requirements
+.PHONY: help build run deploy stop test format gen-requirements
 
 build: ## Build the docker image
 	@docker build -t python-rpg-tools-app .
@@ -17,9 +17,6 @@ stop: ## Stop running container (not working???)
 
 test: 
 	@echo "Not set up yet"
-
-lint: ## Get linter output from flake8
-	@flake8
 
 format: ## Format python code using black
 	#@black
