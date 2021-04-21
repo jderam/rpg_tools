@@ -4,27 +4,26 @@ OS := $(shell uname)
 
 .PHONY: help build run deploy stop test format gen-requirements
 
-build: ## Build the docker image
-	@docker build -t python-rpg-tools-app .
+build: ## Build the docker images
+	@docker compose build
 
 run: ## Run the docker container
-	@docker run -d -p 5000:5000 python-rpg-tools-app
-
-deploy: build run ## Build and run docker container
+	@docker compose up --build --detach
 
 stop: ## Stop running container (not working???)
-	@docker stop $(docker ps | grep python-rpg-tools-app | cut -d' ' -f1)
+	@docker stop rpg-tools-nginx rpg-tools-flask-app
 
 test: 
 	@echo "Not set up yet"
 
 format: ## Format python code using black
-	#@black
-	@echo "Do nothing for now"
+	@black ./python/
+
+lint: ## Run flake8 linter
+	@flake8 ./python
 
 gen-requirements: ## Generate a new requirements.txt file
-	# @pip freeze | sed -e 's/==/>=/g' | grep -v pyspark > requirements.txt
-	@pip-compile requirements.in > requirements.txt
+	@pip-compile python/requirements.in > python/requirements.txt
 
 help: ## Generate and display help info on make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
