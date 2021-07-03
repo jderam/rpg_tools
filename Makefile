@@ -5,10 +5,10 @@ OS := $(shell uname)
 .PHONY: help build run deploy stop test format gen-requirements
 
 build: ## Build the docker images
-	@docker compose build
+	@docker-compose build
 
 run: ## Run the docker container
-	@docker compose up --build --detach
+	@docker-compose up --build --detach
 
 stop: ## Stop running container (not working???)
 	@docker stop rpg-tools-nginx rpg-tools-flask-app
