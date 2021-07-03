@@ -41,8 +41,12 @@ class PlayerCharacter:
 
     def __init__(self):
         self.bio = self._bio()
+        self.bio_info = bio[self.bio]
         self.abilities = self._ability_scores()
-
+        self.size = self.bio_info["size"]
+        self.speed1 = self.bio_info["speed1"]
+        self.speed2 = self.bio_info["speed2"]
+        self.speed2_type = self.bio_info["speed2_type"]
         self.mutations = self._mutations()
 
         # self.STR_mod = self._ability_mods()
