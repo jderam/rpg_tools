@@ -27,6 +27,14 @@ class PlayerCharacter:
 
         return abilities
 
+    def _save_profs(self, save_index):
+        if save_index == 1:
+            return random.choice(["DEX", "CON", "WIS"])
+        elif save_index == 2:
+            return random.choice(["STR", "INT", "CHA"])
+        else:
+            raise ValueError("Invalid value for save_index, must be 1 or 2")
+
     def _mutations(self):
         char_mutations = deepcopy(bio[self.bio]["bio_mutations"])
         k = bio[self.bio]["random_mutations"]
@@ -43,6 +51,9 @@ class PlayerCharacter:
         self.bio = self._bio()
         self.bio_info = bio[self.bio]
         self.abilities = self._ability_scores()
+        self.prof_bonus = 2
+        self.save_prof1 = self._save_profs(1)
+        self.save_prof2 = self._save_profs(2)
         self.size = self.bio_info["size"]
         self.speed1 = self.bio_info["speed1"]
         self.speed2 = self.bio_info["speed2"]
