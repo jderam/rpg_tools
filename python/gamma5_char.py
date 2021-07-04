@@ -1,6 +1,7 @@
 import random
 import dice
 from copy import deepcopy
+from math import floor
 from gamma5_data import bio, mutations
 
 
@@ -41,11 +42,15 @@ class PlayerCharacter:
         char_mutations.extend(random.sample(list(mutations.keys()), k=k))
         return char_mutations
 
-    def _ability_mod(self, ability: str) -> int:
-        # score
-        # mod =
-        # return mod
-        pass
+    def _mod_calc(self, score: int) -> int:
+        mod = floor((score - 10) / 2)
+        return mod
+
+    def _ability_mods(self):
+        ability_mods = {}
+        for ability in self.abilities.keys():
+            ability_mods[ability] = self._mod_calc(self.abilities[ability])
+        return ability_mods
 
     def __init__(self):
         self.bio = self._bio()
@@ -59,10 +64,10 @@ class PlayerCharacter:
         self.speed2 = self.bio_info["speed2"]
         self.speed2_type = self.bio_info["speed2_type"]
         self.mutations = self._mutations()
+        self.ability_mods = self._ability_mods()
 
-        # self.STR_mod = self._ability_mods()
-
-        # self.hp =
+        # placeholder for calculating saving throw mods
+        # self.hp = 12 + CON mod
 
     def to_dict(self):
         return self.__dict__
