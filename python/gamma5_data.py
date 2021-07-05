@@ -16,6 +16,7 @@ bio = {
         "skills": [
             "Perception",
         ],
+        "features": [],
         "bio_mutations": [
             "Low-Light Vision",
             "Talons",
@@ -39,6 +40,7 @@ bio = {
         "skills": [
             "Stealth",
         ],
+        "features": [],
         "bio_mutations": [
             "Darkvision",
             "Bite/Horns/Talons",
@@ -62,6 +64,7 @@ bio = {
         "skills": [
             "Survival",
         ],
+        "features": [],
         "bio_mutations": [
             "Blindsight",
             "Climber",
@@ -86,6 +89,7 @@ bio = {
         "skills": [
             "random",
         ],
+        "features": [],
         "bio_mutations": [],
         "random_mutations": 5,
     },
@@ -106,6 +110,7 @@ bio = {
             "Ancient Tech",
             "random",
         ],
+        "features": [],
         "bio_mutations": [],
         "random_mutations": 0,
     },
