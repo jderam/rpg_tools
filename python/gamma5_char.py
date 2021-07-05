@@ -37,6 +37,7 @@ class PlayerCharacter:
 
     def _mutations(self):
         # TODO: Ensure random mutations aren't repeats of bio mutations
+        # TODO: Subroutine to select from bite/horns/talons for beast
         char_mutations = deepcopy(bio[self.bio]["bio_mutations"])
         k = bio[self.bio]["random_mutations"]
         char_mutations.extend(random.sample(list(mutations.keys()), k=k))
@@ -72,9 +73,7 @@ class PlayerCharacter:
         self.mutations = self._mutations()
         self.ability_mods = self._ability_mods()
         self.save_mods = self._save_mods()
-
-        # placeholder for calculating saving throw mods
-        # self.hp = 12 + CON mod
+        self.hp = 12 + self.ability_mods["CON"]
 
     def to_dict(self):
         return self.__dict__
