@@ -2,7 +2,7 @@ import random
 import dice
 from copy import deepcopy
 from math import floor
-from gamma5_data import bio, mutations
+from gamma5_data import bio, mutations, random_skills, skills
 
 
 class PlayerCharacter:
@@ -62,6 +62,27 @@ class PlayerCharacter:
                 save_mods[ability] = self.ability_mods[ability]
         return save_mods
 
+    def _skills(self):
+        skills = []
+        # add bio skills
+        bio_skills = self.bio_info["skills"]
+        skills.extend([x for x in bio_skills if x != "random"])
+        if "random" in bio_skills:
+            skills.append(random.choice([x for x in random_skills if x not in skills]))
+        # everyone gets 4 additional random skills
+        for i in range(4):
+            skills.append(random.choice([x for x in random_skills if x not in skills]))
+        return skills
+
+    def _skill_mods(self):
+        skill_mods = {}
+        for skill, ability in skills.items():
+            if skill in self.skill_profs:
+                skill_mods[skill] = self.ability_mods[ability] + self.prof_bonus
+            else:
+                skill_mods[skill] = self.ability_mods[ability]
+        return skill_mods
+
     def __init__(self):
         self.bio = self._bio()
         self.bio_info = bio[self.bio]
@@ -74,6 +95,8 @@ class PlayerCharacter:
         self.ability_mods = self._ability_mods()
         self.save_mods = self._save_mods()
         self.hp = 12 + self.ability_mods["CON"]
+        self.skill_profs = self._skills()
+        self.skill_mods = self._skill_mods()
 
     def to_dict(self):
         return self.__dict__
