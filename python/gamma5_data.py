@@ -9,9 +9,10 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": 30,
-        "speed2_type": "Fly",
+        "speed": {
+            "Walk": 30,
+            "Fly": 30,
+        },
         "skills": [
             "Perception",
         ],
@@ -32,9 +33,9 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 40,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 40,
+        },
         "skills": [
             "Stealth",
         ],
@@ -54,9 +55,10 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": 30,
-        "speed2_type": "Climb",
+        "speed": {
+            "Walk": 30,
+            "Climb": 30,
+        },
         "skills": [
             "Survival",
         ],
@@ -78,9 +80,9 @@ bio = {
             "CHA": "3d6+2",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "random",
         ],
@@ -97,9 +99,9 @@ bio = {
             "CHA": "3d6+3",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Ancient Tech",
             "random",
@@ -117,9 +119,9 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 25,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 25,
+        },
         "skills": [
             "Nature",
         ],
@@ -142,9 +144,9 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Investigation",
         ],
@@ -178,9 +180,9 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed1": 30,
-        "speed2": None,
-        "speed2_type": None,
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Intimidation",
         ],
@@ -274,3 +276,5 @@ mutations = {
     "Wings": "You gain a flying speed equal to your walking speed.",
     "Wormhole": "Your powers can throw enemies into other dimensions. For some time.",
 }
+
+skills = {}
