@@ -35,6 +35,12 @@ class PlayerCharacter:
         ]
         return save_profs
 
+    def _features(self):
+        features = ["Second Wind"]
+        if len(self.bio_info["features"]) > 0:
+            features.extend(list(self.bio_info["features"].keys()))
+        return features
+
     def _mutations(self):
         # TODO: Subroutine to select from bite/horns/talons for beast
         char_mutations = deepcopy(bio[self.bio]["bio_mutations"])
@@ -161,12 +167,6 @@ class PlayerCharacter:
                 save_mods[ability] = self.ability_mods[ability]
         return save_mods
 
-    def _hit_points(self):
-        hp = 12 + self.abilities["CON"]
-        for i in range(self.hd - 1):
-            hp += 7 + self.abilities["CON"]
-        return hp
-
     def _skills(self):
         skills = []
         # add bio skills
@@ -188,6 +188,15 @@ class PlayerCharacter:
                 skill_mods[skill] = self.ability_mods[ability]
         return skill_mods
 
+    def _hit_points(self):
+        hp = 12 + self.abilities["CON"]
+        for i in range(self.hd - 1):
+            hp += 7 + self.abilities["CON"]
+        return hp
+
+    def _armor_class(self):
+        return
+
     def __init__(self):
         self.level = 1
         self.hd = 1
@@ -201,6 +210,7 @@ class PlayerCharacter:
         self.speed = self.bio_info["speed"]
         self.weapons = []
         self.armor_items = []
+        self.features = self._features()
         self.mutations = self._mutations()
         self._apply_mutations()
         self.ability_mods = self._ability_mods()
