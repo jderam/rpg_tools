@@ -277,4 +277,41 @@ mutations = {
     "Wormhole": "Your powers can throw enemies into other dimensions. For some time.",
 }
 
-skills = {}
+random_skills = [
+    "Acrobatics",
+    "Animal Handling",
+    "Athletics",
+    "Conspiracy",
+    "Deception",
+    "Insight",
+    "Intimidation",
+    "Investigation",
+    "Nature",
+    "Perception",
+    "Performance",
+    "Persuasion",
+    "Science",
+    "Sleight of Hand",
+    "Stealth",
+    "Survival",
+]
+
+skills = {
+    "Acrobatics": "DEX",
+    "Ancient Tech": "INT",
+    "Animal Handling": "WIS",
+    "Athletics": "STR",
+    "Conspiracy": "INT",
+    "Deception": "CHA",
+    "Insight": "WIS",
+    "Intimidation": "CHA",
+    "Investigation": "INT",
+    "Nature": "INT",
+    "Perception": "WIS",
+    "Performance": "CHA",
+    "Persuasion": "CHA",
+    "Science": "INT",
+    "Sleight of Hand": "DEX",
+    "Stealth": "DEX",
+    "Survival": "WIS",
+}
