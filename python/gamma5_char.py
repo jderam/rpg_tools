@@ -73,11 +73,11 @@ class PlayerCharacter:
             if m == "Bite":
                 self.weapons.append(
                     {
-                        "Name": "Bite",
-                        "Ability": "STR",
-                        "Damage": "1d10",
-                        "Type": "P",
-                        "Range": "Melee",
+                        "name": "Bite",
+                        "ability": "STR",
+                        "damage": "1d10",
+                        "damage_type": "P",
+                        "range": "Melee",
                     }
                 )
             elif m == "Climber":
@@ -97,21 +97,21 @@ class PlayerCharacter:
             elif m == "Gamma Eyes":
                 self.weapons.append(
                     {
-                        "Name": "Gamma Eyes",
-                        "Ability": "DEX",
-                        "Damage": "2d6",
-                        "Type": "Radiation",
-                        "Range": "30'",
+                        "name": "Gamma Eyes",
+                        "ability": "DEX",
+                        "damage": "2d6",
+                        "damage_type": "Radiation",
+                        "range": "30'",
                     }
                 )
             elif m == "Gauss Spike":
                 self.weapons.append(
                     {
-                        "Name": "Gauss Spike",
-                        "Ability": "DEX",
-                        "Damage": "2d4 + Prone",
-                        "Type": "Force",
-                        "Range": "30'",
+                        "name": "Gauss Spike",
+                        "ability": "DEX",
+                        "damage": "2d4 + Prone",
+                        "damage_type": "Force",
+                        "range": "30'",
                     }
                 )
             elif m == "Greater Saving Throw":
@@ -122,11 +122,11 @@ class PlayerCharacter:
             elif m == "Horns":
                 self.weapons.append(
                     {
-                        "Name": "Horns",
-                        "Ability": "STR",
-                        "Damage": "2d6",
-                        "Type": "P",
-                        "Range": "Melee",
+                        "name": "Horns",
+                        "ability": "STR",
+                        "damage": "2d6",
+                        "damage_type": "P",
+                        "range": "Melee",
                     }
                 )
             elif m == "Quick":
@@ -135,11 +135,11 @@ class PlayerCharacter:
             elif m == "Talons":
                 self.weapons.append(
                     {
-                        "Name": "Talons",
-                        "Ability": "DEX",
-                        "Damage": "1d6",
-                        "Type": "S",
-                        "Range": "Melee",
+                        "name": "Talons",
+                        "ability": "DEX",
+                        "damage": "1d6",
+                        "damage_type": "S",
+                        "range": "Melee",
                     }
                 )
             elif m == "Thick Hide":
@@ -326,6 +326,7 @@ class PlayerCharacter:
         self.skill_mods = self._skill_mods()
         self.ac = self._armor_class()
         self.initiative = self.abilities["DEX"]
+        self.equipment = self._equipment()
 
     def to_dict(self):
         return self.__dict__
