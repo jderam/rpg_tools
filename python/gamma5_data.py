@@ -133,7 +133,7 @@ bio = {
         "skills": [
             "Nature",
         ],
-        "features": [{"Flammable": "Vulnerable to fire damage"}],
+        "features": [("Flammable", "Vulnerable to fire damage")],
         "bio_mutations": [
             "Blindsight",
             "Poison Resistance",
@@ -159,8 +159,9 @@ bio = {
             "Investigation",
         ],
         "features": [
-            {
-                "Tin Man": (
+            (
+                "Tin Man",
+                (
                     "You're not considered a living creature, and do not need to eat, "
                     "drink, breathe or sleep. You can eat or drink if you want. In "
                     "addition, you are immune to radiation, poison and poison damage, "
@@ -170,8 +171,8 @@ bio = {
                     "Intelligence (Science) check); you are destroyed (which means "
                     "your character 'dies') if you fail three death saves or take "
                     "massive damage."
-                )
-            }
+                ),
+            )
         ],
         "bio_mutations": [
             "Darkvision",

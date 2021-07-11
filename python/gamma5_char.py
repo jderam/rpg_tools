@@ -47,7 +47,7 @@ class PlayerCharacter:
         features = ["Second Wind"]
         if len(self.bio_info["features"]) > 0:
             # features.extend(list(self.bio_info["features"].keys()))
-            features.extend([x.keys() for x in self.bio_info["features"]])
+            features.extend([x[0] for x in self.bio_info["features"]])
         return features
 
     def _mutations(self):
