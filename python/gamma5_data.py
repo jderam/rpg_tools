@@ -320,3 +320,304 @@ skills = {
     "Stealth": "DEX",
     "Survival": "WIS",
 }
+
+light_melee = [
+    {
+        "name": "Knife",
+        "damage": "1d8",
+        "damage_type": "P",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Scissors",
+        "damage": "1d8",
+        "damage_type": "P",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Scimitar",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Machete",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Katana",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+]
+
+heavy_melee = [
+    {
+        "name": "Road Sign",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Sledgehammer",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Chainsaw",
+        "damage": "2d6",
+        "damage_type": "S",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Baseball Bat",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Greatsword",
+        "damage": "2d6",
+        "damage_type": "S",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+]
+
+light_ranged = [
+    {
+        "name": "Hand Axe",
+        "damage": "1d8",
+        "damage_type": "S",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Slingshot",
+        "damage": "1d8",
+        "damage_type": "B",
+        "range": "80/320",
+        "properties": [],
+    },
+    {
+        "name": "Shuriken",
+        "damage": "1d8",
+        "damage_type": "P",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Rock",
+        "damage": "1d8",
+        "damage_type": "B",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Hand Crossbow",
+        "damage": "1d8",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [],
+    },
+]
+
+heavy_ranged = [
+    {
+        "name": "Compound Bow",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Heavy Crossbow",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Harpoon Gun",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Potato Gun",
+        "damage": "1d12",
+        "damage_type": "B",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+]
+
+light_gun = [
+    {
+        "name": "Beretta",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Colt",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Glock",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Desert Eagle",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+]
+
+heavy_gun = [
+    {
+        "name": "Hunting Rifle",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Shotgun",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Assault Rifle",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Bazooka",
+        "damage": "2d10",
+        "damage_type": "B",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+]
+
+wanderers_pack = [
+    "backpack",
+    "bedroll",
+    "crowbar",
+    "duct tape",
+    "flashlight",
+    "flint and steel",
+    "fuel tank (empty)",
+    "lock picking tools",
+    "canteen",
+    "50' rope",
+    "tent",
+    "trail rations (10 days)",
+]
+
+scavenged_junk = []
+
+ancient_gear = [
+    "bio-scanner",
+    "telepathic parrot",
+    "hypnotic ray",
+    "animatronic dog",
+    "security drone",
+    "stun baton",
+    "energy mace",
+    "shield generator",
+    "vibro-knife",
+    "food synthesizer",
+    "laser pistol",
+    "antigravity belt",
+    "power armor",
+    "pulse rifle",
+    "plasma gun",
+    "plasma saw",
+    "gamma field generator",
+    "panacea injector",
+    "flamethrower",
+    "evil death ray",
+]

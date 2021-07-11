@@ -136,9 +136,9 @@ class PlayerCharacter:
             elif m == "Thick Hide":
                 self.armor_items.append(
                     {
-                        "Name": "Thick Hide",
-                        "AC Bonus": 2,
-                        "Max Dex Bonus": None,
+                        "name": "Thick Hide",
+                        "ac_bonus": 2,
+                        "max_dex": None,
                     }
                 )
             elif m == "Toughened":
@@ -193,6 +193,33 @@ class PlayerCharacter:
         for i in range(self.hd - 1):
             hp += 7 + self.abilities["CON"]
         return hp
+
+    def _equipment(self):
+        return
+
+    def _weapons(self):
+        return
+
+    def _armor_items(self):
+        # TODO: add different armor types
+        # if self.ability_mods["DEX"] > 2:
+        #     armor_type = "Light"
+        # else:
+        #     armor_type = random.choices(["Light", "Medium"], weights=[2, 1])[0]
+        #             # {
+        #             #     "Name": "Thick Hide",
+        #             #     "AC Bonus": 2,
+        #             #     "Max Dex Bonus": None,
+        #             # }
+        # light_armor = {
+        #     "Name": None,
+        #     ""
+        # }
+        return {
+            "name": "Light Armor",
+            "ac_bonus": 2,
+            "max_dex": None,
+        }
 
     def _armor_class(self):
         return
