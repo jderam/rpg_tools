@@ -1,3 +1,6 @@
+import random
+from dice import roll_dice
+
 bio = {
     "Avian": {
         "abilities": {
@@ -130,7 +133,7 @@ bio = {
         "skills": [
             "Nature",
         ],
-        "features": [{"Flammable: Vulnerable to fire damage"}],
+        "features": [{"Flammable": "Vulnerable to fire damage"}],
         "bio_mutations": [
             "Blindsight",
             "Poison Resistance",
@@ -191,6 +194,7 @@ bio = {
         "skills": [
             "Intimidation",
         ],
+        "features": [],
         "bio_mutations": [
             "Darkvision",
             "Fearless",
@@ -597,7 +601,45 @@ wanderers_pack = [
     "trail rations (10 days)",
 ]
 
-scavenged_junk = []
+scavenged_junk = [
+    "vacuum cleaner",
+    "special contents DVD from a horror movie",
+    "wireless mouse",
+    "office chair",
+    "plastic mug: 'I \u2764 Caffeine'",
+    "umbrella",
+    "biker helmet",
+    "tennis racket",
+    "sunglasses",
+    "DVD player/recorder",
+    "body bag",
+    "t-shirt with the FunCorp logo",
+    "TV screen",
+    f"{roll_dice(3, 4)} crayons",
+    "8gb USB flash drive",
+    "car stereo",
+    f"{roll_dice(1, 4)} winter tires",
+    "beer, 6-pack",
+    "superglue",
+    "earphones",
+    "snow boots",
+    "printer",
+    f"toy {random.choice(['car','car','truck','airplane','helicopter','space shuttle'])}",  # noqa: E501
+    "matches",
+    "mini fridge",
+    "solar power generator",
+    "pickup truck",
+    "bikini",
+    "5 cans of tuna",
+    "steel mirror",
+    "canoe with 1 oar",
+    "punching bag",
+    "fuel tank (1 gallon, full)",
+    "deck of cards",
+    "bottle of ink",
+    "ammunition",
+    "handheld mosquito zapper",
+]
 
 ancient_gear = [
     "bio-scanner",

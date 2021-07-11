@@ -2,7 +2,15 @@ import random
 import dice
 from copy import deepcopy
 from math import floor
-from gamma5_data import bio, mutations, random_skills, skills
+from gamma5_data import (
+    bio,
+    mutations,
+    random_skills,
+    skills,
+    wanderers_pack,
+    scavenged_junk,
+    ancient_gear,
+)
 
 
 class PlayerCharacter:
@@ -38,7 +46,8 @@ class PlayerCharacter:
     def _features(self):
         features = ["Second Wind"]
         if len(self.bio_info["features"]) > 0:
-            features.extend(list(self.bio_info["features"].keys()))
+            # features.extend(list(self.bio_info["features"].keys()))
+            features.extend([x.keys() for x in self.bio_info["features"]])
         return features
 
     def _mutations(self):
@@ -189,13 +198,10 @@ class PlayerCharacter:
         return skill_mods
 
     def _hit_points(self):
-        hp = 12 + self.abilities["CON"]
+        hp = 12 + self.ability_mods["CON"]
         for i in range(self.hd - 1):
-            hp += 7 + self.abilities["CON"]
+            hp += 7 + self.ability_mods["CON"]
         return hp
-
-    def _equipment(self):
-        return
 
     def _weapons(self):
         return
@@ -215,14 +221,54 @@ class PlayerCharacter:
         #     "Name": None,
         #     ""
         # }
-        return {
-            "name": "Light Armor",
-            "ac_bonus": 2,
-            "max_dex": None,
-        }
+        return [
+            {
+                "name": "Light Armor",
+                "ac_bonus": 2,
+                "max_dex": None,
+            }
+        ]
 
     def _armor_class(self):
-        return
+        # TODO: This could probably use a refactor
+        ac = 10
+        max_dex = None
+        for armor in self.armor_items:
+            ac += armor["ac_bonus"]
+            if armor["max_dex"] is not None:
+                if max_dex is not None:
+                    if armor["max_dex"] < max_dex:
+                        max_dex = armor["max_dex"]
+                else:
+                    max_dex = armor["max_dex"]
+        if max_dex is not None:
+            ac += min(self.ability_mods["DEX"], max_dex)
+        else:
+            ac += self.ability_mods["DEX"]
+        return ac
+
+    def _equipment(self):
+        equipment = deepcopy(wanderers_pack)
+        rolls_counter = dice.roll_dice(2, 4)
+        while rolls_counter > 0:
+            roll = dice.roll_dice(1, 100)
+            if 1 <= roll <= 95:
+                equip_item = random.choice(
+                    [x for x in scavenged_junk if x not in equipment]
+                )
+                equipment.append(equip_item)
+            elif 96 <= roll <= 99:
+                equip_item = random.choice(
+                    [x for x in ancient_gear if x not in equipment]
+                )
+                equipment.append(equip_item)
+            elif roll == 100:
+                rolls_counter += 2
+                continue
+            else:
+                raise ValueError(f"Expecting roll to be 1 to 100 but got {roll}")
+            rolls_counter -= 1
+        return equipment
 
     def __init__(self):
         self.level = 1
@@ -235,8 +281,41 @@ class PlayerCharacter:
         self.save_profs = self._save_profs()
         self.size = self.bio_info["size"]
         self.speed = self.bio_info["speed"]
-        self.weapons = []
-        self.armor_items = []
+        self.weapons = [
+            {
+                "name": "Light Melee Weapon",
+                "damage": "1d8",
+                "damage_type": "",
+                "properties": [
+                    "finesse",
+                    "light",
+                ],
+            },
+            {
+                "name": "Light Ranged Weapon",
+                "damage": "1d8",
+                "damage_type": "",
+                "range": "80/320",
+                "properties": [],
+            },
+        ]
+        # self.melee_weapon = {
+        #     "name": "Light Melee Weapon",
+        #     "damage": "1d8",
+        #     "damage_type": "",
+        #     "properties": [
+        #         "finesse",
+        #         "light",
+        #     ]
+        # }
+        # self.ranged_weapon = {
+        #     "name": "Light Ranged Weapon",
+        #     "damage": "1d8",
+        #     "damage_type": "",
+        #     "range": "80/320",
+        #     "properties": [],
+        # }
+        self.armor_items = self._armor_items()
         self.features = self._features()
         self.mutations = self._mutations()
         self._apply_mutations()
@@ -245,7 +324,7 @@ class PlayerCharacter:
         self.hp = self._hit_points()
         self.skill_profs = self._skills()
         self.skill_mods = self._skill_mods()
-        self.ac = 10 + self.abilities["DEX"]
+        self.ac = self._armor_class()
         self.initiative = self.abilities["DEX"]
 
     def to_dict(self):
