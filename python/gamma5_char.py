@@ -325,7 +325,7 @@ class PlayerCharacter:
         self.skill_profs = self._skills()
         self.skill_mods = self._skill_mods()
         self.ac = self._armor_class()
-        self.initiative = self.abilities["DEX"]
+        self.initiative = self.ability_mods["DEX"]
         self.equipment = self._equipment()
 
     def to_dict(self):
