@@ -10,20 +10,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def root_test():
-    msg = "welcome to rpg tools"
-    return msg
+    return "welcome to rpg tools"
 
 
 @app.route("/assh/json")
 def assh_character():
-    pc_json = assh_char.PlayerCharacter().to_dict()
-    return pc_json
+    return assh_char.PlayerCharacter().to_dict()
 
 
 @app.route("/assh/dying-earth/json")
 def assh_de_character():
-    pc_json = assh_char.PlayerCharacter(magician_spell_src="dying_earth").to_dict()
-    return pc_json
+    return assh_char.PlayerCharacter(magician_spell_src="dying_earth").to_dict()
 
 
 @app.route("/tiny-dungeon/json")
