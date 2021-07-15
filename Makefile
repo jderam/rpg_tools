@@ -10,7 +10,7 @@ build: ## Build the docker images
 run: ## Run the docker container
 	@docker-compose up --build --detach
 
-stop: ## Stop running container (not working???)
+stop: ## Stop running container
 	@docker stop rpg-tools-nginx rpg-tools-flask-app
 
 test: 

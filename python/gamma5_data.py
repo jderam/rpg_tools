@@ -1,3 +1,6 @@
+import random
+from dice import roll_dice
+
 bio = {
     "Avian": {
         "abilities": {
@@ -9,10 +12,14 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "30', Fly 30'",
+        "speed": {
+            "Walk": 30,
+            "Fly": 30,
+        },
         "skills": [
             "Perception",
         ],
+        "features": [],
         "bio_mutations": [
             "Low-Light Vision",
             "Talons",
@@ -30,10 +37,13 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "40'",
+        "speed": {
+            "Walk": 40,
+        },
         "skills": [
             "Stealth",
         ],
+        "features": [],
         "bio_mutations": [
             "Darkvision",
             "Bite/Horns/Talons",
@@ -50,10 +60,14 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "30', Climb 30'",
+        "speed": {
+            "Walk": 30,
+            "Climb": 30,
+        },
         "skills": [
             "Survival",
         ],
+        "features": [],
         "bio_mutations": [
             "Blindsight",
             "Climber",
@@ -72,10 +86,13 @@ bio = {
             "CHA": "3d6+2",
         },
         "size": "Medium",
-        "speed": "30'",
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "random",
         ],
+        "features": [],
         "bio_mutations": [],
         "random_mutations": 5,
     },
@@ -89,11 +106,14 @@ bio = {
             "CHA": "3d6+3",
         },
         "size": "Medium",
-        "speed": "30'",
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Ancient Tech",
             "random",
         ],
+        "features": [],
         "bio_mutations": [],
         "random_mutations": 0,
     },
@@ -107,11 +127,13 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "25'",
+        "speed": {
+            "Walk": 25,
+        },
         "skills": [
             "Nature",
         ],
-        "features": [{"Flammable: Vulnerable to fire damage"}],
+        "features": [("Flammable", "Vulnerable to fire damage")],
         "bio_mutations": [
             "Blindsight",
             "Poison Resistance",
@@ -130,13 +152,16 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "30'",
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Investigation",
         ],
         "features": [
-            {
-                "Tin Man": (
+            (
+                "Tin Man",
+                (
                     "You're not considered a living creature, and do not need to eat, "
                     "drink, breathe or sleep. You can eat or drink if you want. In "
                     "addition, you are immune to radiation, poison and poison damage, "
@@ -146,8 +171,8 @@ bio = {
                     "Intelligence (Science) check); you are destroyed (which means "
                     "your character 'dies') if you fail three death saves or take "
                     "massive damage."
-                )
-            }
+                ),
+            )
         ],
         "bio_mutations": [
             "Darkvision",
@@ -164,10 +189,13 @@ bio = {
             "CHA": "3d6",
         },
         "size": "Medium",
-        "speed": "30'",
+        "speed": {
+            "Walk": 30,
+        },
         "skills": [
             "Intimidation",
         ],
+        "features": [],
         "bio_mutations": [
             "Darkvision",
             "Fearless",
@@ -258,3 +286,439 @@ mutations = {
     "Wings": "You gain a flying speed equal to your walking speed.",
     "Wormhole": "Your powers can throw enemies into other dimensions. For some time.",
 }
+
+random_skills = [
+    "Acrobatics",
+    "Animal Handling",
+    "Athletics",
+    "Conspiracy",
+    "Deception",
+    "Insight",
+    "Intimidation",
+    "Investigation",
+    "Nature",
+    "Perception",
+    "Performance",
+    "Persuasion",
+    "Science",
+    "Sleight of Hand",
+    "Stealth",
+    "Survival",
+]
+
+skills = {
+    "Acrobatics": "DEX",
+    "Ancient Tech": "INT",
+    "Animal Handling": "WIS",
+    "Athletics": "STR",
+    "Conspiracy": "INT",
+    "Deception": "CHA",
+    "Insight": "WIS",
+    "Intimidation": "CHA",
+    "Investigation": "INT",
+    "Nature": "INT",
+    "Perception": "WIS",
+    "Performance": "CHA",
+    "Persuasion": "CHA",
+    "Science": "INT",
+    "Sleight of Hand": "DEX",
+    "Stealth": "DEX",
+    "Survival": "WIS",
+}
+
+light_melee = [
+    {
+        "name": "Knife",
+        "damage": "1d8",
+        "damage_type": "P",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Scissors",
+        "damage": "1d8",
+        "damage_type": "P",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Scimitar",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Machete",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+    {
+        "name": "Katana",
+        "damage": "1d8",
+        "damage_type": "S",
+        "properties": [
+            "finesse",
+            "light",
+        ],
+    },
+]
+
+heavy_melee = [
+    {
+        "name": "Road Sign",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Sledgehammer",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Chainsaw",
+        "damage": "2d6",
+        "damage_type": "S",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Baseball Bat",
+        "damage": "2d6",
+        "damage_type": "B",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Greatsword",
+        "damage": "2d6",
+        "damage_type": "S",
+        "properties": [
+            "heavy",
+            "two-handed",
+        ],
+    },
+]
+
+light_ranged = [
+    {
+        "name": "Hand Axe",
+        "damage": "1d8",
+        "damage_type": "S",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Slingshot",
+        "damage": "1d8",
+        "damage_type": "B",
+        "range": "80/320",
+        "properties": [],
+    },
+    {
+        "name": "Shuriken",
+        "damage": "1d8",
+        "damage_type": "P",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Rock",
+        "damage": "1d8",
+        "damage_type": "B",
+        "range": "20/60",
+        "properties": [
+            "thrown",
+        ],
+    },
+    {
+        "name": "Hand Crossbow",
+        "damage": "1d8",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [],
+    },
+]
+
+heavy_ranged = [
+    {
+        "name": "Compound Bow",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Heavy Crossbow",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Harpoon Gun",
+        "damage": "1d12",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Potato Gun",
+        "damage": "1d12",
+        "damage_type": "B",
+        "range": "100/400",
+        "properties": [
+            "two-handed",
+        ],
+    },
+]
+
+light_gun = [
+    {
+        "name": "Beretta",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Colt",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Glock",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+    {
+        "name": "Desert Eagle",
+        "damage": "2d6",
+        "damage_type": "P",
+        "range": "80/320",
+        "properties": [
+            "ammunition",
+        ],
+    },
+]
+
+heavy_gun = [
+    {
+        "name": "Hunting Rifle",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Shotgun",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Assault Rifle",
+        "damage": "2d10",
+        "damage_type": "P",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+    {
+        "name": "Bazooka",
+        "damage": "2d10",
+        "damage_type": "B",
+        "range": "100/400",
+        "properties": [
+            "ammunition",
+            "two-handed",
+        ],
+    },
+]
+
+wanderers_pack = [
+    "backpack",
+    "bedroll",
+    "crowbar",
+    "duct tape",
+    "flashlight",
+    "flint and steel",
+    "fuel tank (empty)",
+    "lock picking tools",
+    "canteen",
+    "50' rope",
+    "tent",
+    "trail rations (10 days)",
+]
+
+scavenged_junk = [
+    "vacuum cleaner",
+    "special contents DVD from a horror movie",
+    "wireless mouse",
+    "office chair",
+    "plastic mug: 'I \u2764 Caffeine'",
+    "umbrella",
+    "biker helmet",
+    "tennis racket",
+    "sunglasses",
+    "DVD player/recorder",
+    "body bag",
+    "t-shirt with the FunCorp logo",
+    "TV screen",
+    f"{roll_dice(3, 4)} crayons",
+    "8gb USB flash drive",
+    "car stereo",
+    f"{roll_dice(1, 4)} winter tires",
+    "beer, 6-pack",
+    "superglue",
+    "earphones",
+    "snow boots",
+    "printer",
+    f"toy {random.choice(['car','car','truck','airplane','helicopter','space shuttle'])}",  # noqa: E501
+    "matches",
+    "mini fridge",
+    "solar power generator",
+    "pickup truck",
+    "bikini",
+    "5 cans of tuna",
+    "steel mirror",
+    "canoe with 1 oar",
+    "punching bag",
+    "fuel tank (1 gallon, full)",
+    "deck of cards",
+    "bottle of ink",
+    "ammunition",
+    "handheld mosquito zapper",
+    "digital thermometer",
+    "wheelchair",
+    "bottle of lubricant",
+    "skateboard",
+    "dictionary",
+    "electric wire (20')",
+    "kaleidoscope",
+    "pajamas",
+    "personal computer",
+    "handcuffs, pink and hairy",
+    "desk lamp",
+    "webcam",
+    "joystick",
+    "rubber gloves",
+    "binoculars",
+    "DIY manual",
+    f"{random.choice(['ghost','ghost','zombie','zombie','witch','vampire'])} halloween costume",  # noqa: E501
+    "carpet",
+    "box of diapers",
+    "electric blender",
+    "wooden ladder",
+    "gas grill",
+    "bottle of curry sauce",
+    "leather jacket",
+    "baseball hat",
+    "wristwatch",
+    "film projector",
+    "inflatable air bed",
+    "cell phone",
+    "motorcycle",
+    "wrestling mask",
+    "novelty tiger skin rug",
+    "toothbrush",
+    "teddy bear",
+    "30 lb. dumbell",
+    "pair of rollerblades",
+    "electric guitar",
+    "bottle of shampoo",
+    "hockey stick",
+    "bird cage",
+    "pool cue",
+    "string of christmas lights (50')",
+    "remote control",
+    "air compressor",
+    f"bottle of {random.choice(['red','white'])} wine",
+    "tire iron",
+    "trash can",
+    "comic book",
+    "green plastic soldiers",
+    "toy water pistol",
+    "bonsai tree",
+    "boxing gloves",
+    f"package of {random.choice(['mint','mint','strawberry','strawberry','orange','banana'])} gum",  # noqa: E501
+    "wireless router",
+    "electric fan",
+    f"box of {roll_dice(2, 4)} cigars",
+    "lawn mover",
+    "box of toilet paper",
+]
+
+ancient_gear = [
+    "bio-scanner",
+    "telepathic parrot",
+    "hypnotic ray",
+    "animatronic dog",
+    "security drone",
+    "stun baton",
+    "energy mace",
+    "shield generator",
+    "vibro-knife",
+    "food synthesizer",
+    "laser pistol",
+    "antigravity belt",
+    "power armor",
+    "pulse rifle",
+    "plasma gun",
+    "plasma saw",
+    "gamma field generator",
+    "panacea injector",
+    "flamethrower",
+    "evil death ray",
+]
