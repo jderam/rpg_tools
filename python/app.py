@@ -1,8 +1,8 @@
 from flask import Flask
-import assh_char
-import td_char
-import gamma5_char
-import maze_rats_char
+import rpg_tools.assh.char as assh_char
+import rpg_tools.tiny_dungeon.char as td_char
+import rpg_tools.gamma5.char as gamma5_char
+import rpg_tools.maze_rats.char as maze_rats_char
 
 
 app = Flask(__name__)

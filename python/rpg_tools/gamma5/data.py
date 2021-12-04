@@ -1,5 +1,5 @@
 import random
-from dice import roll_dice
+from rpg_tools.utils.dice import roll_dice
 
 bio = {
     "Avian": {
