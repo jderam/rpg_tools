@@ -10,10 +10,14 @@ RUN apt-get update \
 
 COPY requirements.txt requirements.txt
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip setuptools wheel
 
 RUN pip install -r requirements.txt
 
 COPY . .
+
+RUN python setup.py sdist bdist_wheel
+
+RUN pip install dist/rpg_tools-*-py3-none-any.whl
 
 CMD ["uwsgi", "app.ini"]

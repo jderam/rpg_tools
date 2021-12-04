@@ -2,3 +2,6 @@
 *__pycache__*
 .DS_Store
 .python-version
+python/build
+python/dist
+python/rpg_tools.egg-info

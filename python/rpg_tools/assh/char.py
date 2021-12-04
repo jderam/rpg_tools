@@ -1,22 +1,26 @@
-import dice
-from utilities import mod_to_str
+from rpg_tools.utils.dice import roll_ndn_drop_n
+from rpg_tools.utils.misc import mod_to_str
 import random
 import json
 from copy import deepcopy
-from assh_ability_adj import adjustments
-from assh_class_data import class_info
-from assh_spells import assh_magician_spells, assh_cleric_spells, dying_earth_spells
+from rpg_tools.assh.ability_adj import adjustments
+from rpg_tools.assh.class_data import class_info
+from rpg_tools.assh.spells import (
+    assh_magician_spells,
+    assh_cleric_spells,
+    dying_earth_spells,
+)
 
 
 class PlayerCharacter:
     def _gen_abilities(self):
         abilities = {
-            "STR": dice.roll_ndn_drop_n(4, 6, 1),
-            "DEX": dice.roll_ndn_drop_n(4, 6, 1),
-            "CON": dice.roll_ndn_drop_n(4, 6, 1),
-            "INT": dice.roll_ndn_drop_n(4, 6, 1),
-            "WIS": dice.roll_ndn_drop_n(4, 6, 1),
-            "CHA": dice.roll_ndn_drop_n(4, 6, 1),
+            "STR": roll_ndn_drop_n(4, 6, 1),
+            "DEX": roll_ndn_drop_n(4, 6, 1),
+            "CON": roll_ndn_drop_n(4, 6, 1),
+            "INT": roll_ndn_drop_n(4, 6, 1),
+            "WIS": roll_ndn_drop_n(4, 6, 1),
+            "CHA": roll_ndn_drop_n(4, 6, 1),
         }
         return abilities
 

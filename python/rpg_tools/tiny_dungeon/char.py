@@ -1,6 +1,6 @@
 import random
 from copy import deepcopy
-from td_data import (
+from rpg_tools.tiny_dungeon.data import (
     races,
     traits,
     adventurers_kit,

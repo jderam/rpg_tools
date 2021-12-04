@@ -1,8 +1,8 @@
 import random
-import dice
+from rpg_tools.utils.dice import roll_dice
 from copy import deepcopy
 from math import floor
-from gamma5_data import (
+from rpg_tools.gamma5.data import (
     bio,
     mutations,
     random_skills,
@@ -25,11 +25,11 @@ class PlayerCharacter:
             if how in ["16", "18"]:
                 score = int(how)
             elif how == "3d6":
-                score = dice.roll_dice(3, 6)
+                score = roll_dice(3, 6)
             elif how == "3d6+2":
-                score = dice.roll_dice(3, 6) + 2
+                score = roll_dice(3, 6) + 2
             elif how == "3d6+3":
-                score = dice.roll_dice(3, 6) + 3
+                score = roll_dice(3, 6) + 3
             else:
                 score = 0
             abilities[ability] = score
@@ -249,9 +249,9 @@ class PlayerCharacter:
 
     def _equipment(self):
         equipment = deepcopy(wanderers_pack)
-        rolls_counter = dice.roll_dice(2, 4)
+        rolls_counter = roll_dice(2, 4)
         while rolls_counter > 0:
-            roll = dice.roll_dice(1, 100)
+            roll = roll_dice(1, 100)
             if 1 <= roll <= 95:
                 equip_item = random.choice(
                     [x for x in scavenged_junk if x not in equipment]

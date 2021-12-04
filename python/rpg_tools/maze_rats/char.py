@@ -1,6 +1,6 @@
 import random
-import dice
-from maze_rats_data import (
+from rpg_tools.utils.dice import roll_dice
+from rpg_tools.maze_rats.data import (
     abilities,
     abilities2,
     gender,
@@ -16,8 +16,13 @@ from maze_rats_data import (
     personalities,
     mannerisms,
 )
-from maze_rats_magic import generate_spell
-from maze_rats_names import female_names, male_names, lower_surnames, upper_surnames
+from rpg_tools.maze_rats.magic import generate_spell
+from rpg_tools.maze_rats.names import (
+    female_names,
+    male_names,
+    lower_surnames,
+    upper_surnames,
+)
 
 
 class PlayerCharacter:
@@ -41,14 +46,14 @@ class PlayerCharacter:
         elif self.abilities_method == 2:
             self.abilities = []
             for i in range(3):
-                self.abilities.append(abilities2[dice.roll_dice(1, 6)])
+                self.abilities.append(abilities2[roll_dice(1, 6)])
         self.hp = 4
         self.gender = random.choice(gender)
         self.name = self._gen_name()
         self.atk_bonus = 0
         self.spell_slots = 0
 
-        self.feature_roll = dice.roll_dice(1, 6)
+        self.feature_roll = roll_dice(1, 6)
         if self.feature_roll == 1:
             self.atk_bonus += 1
         elif self.feature_roll == 2:
