@@ -29,8 +29,13 @@ rebuild_venv: ## rebuild the virtualenv for this project using pyenv
 	pre-commit install
 	pyenv rehash
 
-gen_requirements: ## Generate a new requirements.txt file
-	pip-compile --resolver=backtracking requirements.in > requirements.txt
+gen_requirements: ## Generate new requirements.txt files
+	pip-compile --upgrade --resolver=backtracking --output-file=requirements.txt pyproject.toml
+	pip-compile --upgrade --resolver=backtracking --extra=dev --output-file=requirements_dev.txt pyproject.toml
+	pip-compile --upgrade --resolver=backtracking --extra=test --output-file=requirements_test.txt pyproject.toml
+
+sync_requirements: ## Use pip-sync to reinstall requirements
+	pip-sync --verbose requirements.txt requirements_dev.txt requirements_test.txt
 
 run_test_uvicorn: ## Run fastapi/uvicorn test server
 	uvicorn main:app --reload
