@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=65.4.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpg_tools"
+description = "A collection of character generators and tools for RPGs"
+readme = "README.md"
+authors = [{name = "Jeremy Deram"}]
+urls = {homepage = "https://github.com/jderam/rpg_tools"}
+license = {file = "LICENSE"}
+keywords = [
+    "Dungeons",
+    "Dragons",
+    "RPG",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = [
+    "version",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "black",
+    "flake8",
+    "tox",
+    "pytest",
+    "pytest-cov",
+    "pytest-repeat",
+    "mypy",
+]
+dev = [
+    "fastapi",
+    "ipython",
+    "pip-tools",
+    "pre-commit",
+    "twine",
+    "uvicorn",
+]
+all = [
+    "rpg_tools[test]",
+    "rpg_tools[dev]",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "rpg_tools.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["rpg_tools"]
+exclude = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=rpg_tools"
+testpaths = ["tests"]
+markers = [
+    "repeat: repeats a test n times",
+]
+
+[tool.mypy]
+mypy_path = "rpg_tools"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = false
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
