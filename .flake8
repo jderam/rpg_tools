@@ -1,2 +1,4 @@
 [flake8]
 max-line-length = 88
+per-file-ignores =
+    rpg_tools/tiny_dungeon/data.py:E501

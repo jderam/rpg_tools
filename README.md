@@ -1,2 +1,2 @@
 # rpg_tools
-A collection of tools for use with tabletop RPGs for generatings characters, equipment, spells, etc.
+A collection of tools for use with tabletop RPGs for generating characters, equipment, spells, etc.
