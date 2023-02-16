@@ -1,41 +1,49 @@
 races = {
     "Human": {
         "hp": 6,
-        "trait": {"RANDOM": "Select an additional Trait from the Trait List."},
+        # "trait": {"RANDOM": "Select an additional Trait from the Trait List."},
     },
     "Dwarf": {
         "hp": 8,
         "trait": {
-            "Dark Vision": "You are able to see 30 feet around you in total darkness."
+            "name": "Dark Vision",
+            # "flavor_text": None,
+            "description": "You are able to see 30 feet around you in total darkness.",
         },
     },
     "Fey": {
         "hp": 6,
         "trait": {
-            "Bow Mastery": (
+            "name": "Bow Mastery",
+            # "flavor_text": None,
+            "description": (
                 "You have Mastered bows and have Advantage when using them. "
                 "This is in addition to the Mastered weapon chosen at "
                 "Adventurer Creation."
-            )
+            ),
         },
     },
     "Goblin": {
         "hp": 4,
         "trait": {
-            "Goblin Agility": (
+            "name": "Goblin Agility",
+            # "flavor_text": None,
+            "description": (
                 "You can Test 1d6 whenever you are successfully hit by an enemy. "
                 "If your Test is successful, you evade the attack and do not take "
                 "damage. Declaring Evade as an Action has no additional benefit."
-            )
+            ),
         },
     },
     "Salimar": {
         "hp": 5,
         "trait": {
-            "Pyrothermic Healing": (
+            "name": "Pyrothermic Healing",
+            # "flavor_text": None,
+            "description": (
                 "Any amount of damage that would be dealt to you by a source of "
                 "fire instead heals you for that amount."
-            )
+            ),
         },
     },
 }
