@@ -5,7 +5,7 @@ OS := $(shell uname)
 
 .PHONY: help test format lint rebuild_venv gen_requirements run_test_uvicorn
 
-PYTHON_VERSION=3.11.2
+PYTHON_VERSION=3.11.6
 VENV=rpg-tools
 
 test: 
@@ -24,15 +24,16 @@ rebuild_venv: ## rebuild the virtualenv for this project using pyenv
 	pyenv virtualenv ${PYTHON_VERSION} ${VENV}
 	pyenv local ${VENV}
 	python -m pip install -U pip setuptools wheel pip-tools
-	python -m pip install -r requirements.txt
-	python -m pip install -e .[all]
+	python -m pip install -r requirements_all.txt
+	python -m pip install -e .
 	pre-commit install
 	pyenv rehash
 
 gen_requirements: ## Generate new requirements.txt files
-	pip-compile --upgrade --resolver=backtracking --output-file=requirements.txt pyproject.toml
-	pip-compile --upgrade --resolver=backtracking --extra=dev --output-file=requirements_dev.txt pyproject.toml
-	pip-compile --upgrade --resolver=backtracking --extra=test --output-file=requirements_test.txt pyproject.toml
+	python -m pip install --upgrade pip-tools
+	pip-compile --upgrade --output-file=requirements.txt pyproject.toml
+	pip-compile --upgrade --extra=dev --extra=test --output-file=requirements_all.txt pyproject.toml
+	pip-compile --upgrade --extra=test --output-file=requirements_test.txt pyproject.toml
 
 sync_requirements: ## Use pip-sync to reinstall requirements
 	pip-sync --verbose requirements.txt requirements_dev.txt requirements_test.txt
