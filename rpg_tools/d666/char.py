@@ -330,6 +330,9 @@ class D666Character:
             spells = [{k: v} for k, v in SPELLS.items() if k in spell_keys]
         return spells
 
+    def to_dict(self):
+        return self.__dict__
+
 
 if __name__ == "__main__":
     from pprint import pprint
@@ -337,4 +340,4 @@ if __name__ == "__main__":
     level = roll_dice(1, 9)
     print(f"{level = }")
     character = D666Character(level=level)
-    pprint(character.__dict__)
+    pprint(character.to_dict())
