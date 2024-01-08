@@ -265,8 +265,11 @@ class D666Character:
             )
         for ea in self.extraordinary_abilities:
             if list(ea.keys())[0] == "Weapon Training":
-                ea[
+                ea[f"Weapon Training ({self.trained_weapon})"] = ea.pop(
                     "Weapon Training"
+                )
+                ea[
+                    f"Weapon Training ({self.trained_weapon})"
                 ] = f"You make {self.trained_weapon} combat checks as skilled."
 
     def get_weapon(self):
@@ -316,9 +319,10 @@ class D666Character:
             .replace("Dwarven ", "")
             .replace("Elven ", "")
             .replace("Halfling ", "")
+            .replace("*", "")
             .title()
         )
-        self.equipment.append(result[0][3])
+        self.equipment.append(result[0][3].replace("*", ""))
         return background
 
     def get_spells(self):
