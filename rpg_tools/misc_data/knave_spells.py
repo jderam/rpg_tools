@@ -18,7 +18,7 @@ SPELLS = {
     "Comprehend": "You become fluent in all languages.",
     "Control Plants": "Nearby plants and trees obey you and gain the ability to move at 5 feet per round.",
     "Control Weather": "You may alter the type of weather at will, but you do not otherwise control it.",
-    "Counterspell": "Make an opposed Intelligence save against the Intelligence of the caster of a nearby spell. You may do this out of turn as a reaction, or against an ongoing magical effect. On a success, you may cancel the spell.",
+    "Counterspell": "Make a check against the caster of a nearby spell. You may do this out of turn as a reaction, or against an ongoing magical effect. On a success, you may cancel the spell.",
     "Deafen": "All nearby creatures are deafened.",
     "Detect Magic": "You hear nearby magical auras singing. Volume and harmony signify the aura’s power and refinement.",
     "Disassemble": "Any of your body parts may be detached and reattached at will, without causing pain or damage. You can still control them.",
