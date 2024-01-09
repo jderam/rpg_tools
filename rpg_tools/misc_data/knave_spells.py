@@ -9,7 +9,7 @@ SPELLS = {
     "Babble": "A creature must loudly and clearly repeat everything you think. It is otherwise mute.",
     "Beast Form": "You and your possessions transform into a mundane animal.",
     "Befuddle": "L creatures of your choice are unable to form new short term memories for the duration of the spell.",
-    "Bend Fate": "Roll L+1 d20s. Whenever you must roll a d20 after casting the spell, you must choose and then discard one of the rolled results until they are all gone.",
+    "Bend Fate": "Roll L+1 dice. Whenever you must roll a die after casting the spell, you must choose and then discard one of the rolled results until they are all gone.",
     "Bird Person": "Your arms turn into huge bird wings.",
     "Body Swap": "You switch bodies with a creature you touch . If one body dies, the other dies as well.",
     "Catherine": "A woman wearing a blue dress appears until end of spell. She will obey polite, safe requests.",
