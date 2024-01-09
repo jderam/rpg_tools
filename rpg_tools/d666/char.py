@@ -190,12 +190,12 @@ heavy_melee_weapons = [
     "Zweihänder",
 ]
 ranged_weapons = [
-    "Crossbow, Boltcase of 12 Bolts",
-    "Bow, Quiver of 12 Arrows",
-    "Darts, Bandolier of 12",
-    "Javelins, Sheaf of 6",
-    "Shuriken, Bandolier of 12",
-    "Sling, Pouch of 12 Stones",
+    "Crossbow, boltcase of 12 Bolts",
+    "Bow, quiver of 12 Arrows",
+    "Darts, bandolier of 12",
+    "Javelins, sheaf of 6",
+    "Shuriken, bandolier of 12",
+    "Sling, pouch of 12 Stones",
 ]
 
 
