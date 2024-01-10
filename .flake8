@@ -1,5 +1,6 @@
 [flake8]
 max-line-length = 100
 per-file-ignores =
+    rpg_tools/d666/data.py:E501
     rpg_tools/tiny_dungeon/data.py:E501
     rpg_tools/misc_data/knave_spells.py:E501
