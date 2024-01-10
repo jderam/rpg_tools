@@ -5,3 +5,4 @@
 build
 dist
 rpg_tools.egg-info
+temp/
