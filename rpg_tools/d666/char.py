@@ -1,202 +1,21 @@
 import random
 from typing import Dict, List
 
+from rpg_tools.d666.data import (
+    SKILLS,
+    EXTRAORDINARY_ABILITIES,
+    BASE_EQUIPMENT,
+    CLOTHING_ITEMS,
+    EQUIPMENT_A,
+    EQUIPMENT_B,
+    EQUIPMENT_C,
+    LIGHT_MELEE_WEAPONS,
+    HEAVY_MELEE_WEAPONS,
+    RANGED_WEAPONS,
+    SPELLS,
+)
 from rpg_tools.misc_data.dcc_occupations import OCCUPATIONS
-from rpg_tools.misc_data.knave_spells import SPELLS
 from rpg_tools.utils.dice import roll_dice
-
-skills = [
-    {
-        "Dungeoneering": (
-            "Navigate dungeons and caves, detect grades and slopes, "
-            "identify subterranean creatures."
-        ),
-    },
-    {
-        "Fast-Talk": "Convince another through charisma or subterfuge.",
-    },
-    {
-        "Hypermnesia": "Perfectly recall information the character was previously exposed to.",
-    },
-    {
-        "Intuition": "Discern lies or malicious intent; notice an important detail.",
-    },
-    {
-        "Knowledge": (
-            "Awareness of a bit of lore, science, or trivia that may be relevant to the situation."
-        ),
-    },
-    {
-        "Legerdemain": "Performing card tricks, picking pockets, and similar.",
-    },
-    {
-        "Muscle": "Break down doors, lift heavy things, etc.",
-    },
-    {
-        "Parkour": "Balancing, climbing, jumping, tumbling.",
-    },
-    {
-        "Sneak": "Quietly move or hide without being noticed.",
-    },
-    {
-        "Survival": (
-            "Navigate, find food and shelter, track animals and people while in the wilderness."
-        ),
-    },
-    {
-        "Tinkering": (
-            "Pick locks, set or disarm traps, discern how technological items work. "
-            "Tools may be required."
-        ),
-    },
-    {
-        "Zoophilism": "Ability to calm, empathize with, and communicate in a "
-        "rudimentary fashion with animals."
-    },
-]
-extraordinary_abilities = [
-    {
-        "Alchemy": (
-            "Mix potions and poisons, provided the necessary ingredients are at hand. "
-            "Identify unknown liquids with a successful check."
-        ),
-    },
-    {
-        "Beastmaster": (
-            "Make a check to tame a beast who's hit points don't exceed your own. "
-            "The pet must be fed and treated well. If ever neglected, or called on to "
-            "aid in direct combat, another check must be made to prevent the creature from "
-            "abandoning you. If this ability is taken a second time, or you have the "
-            "zoophilism skill, the checks are successful on 4+."
-        ),
-    },
-    {
-        "Berserks Mode": (
-            "You may choose to enter a berserker rage, which lasts until the end of a "
-            "combat. All attacks are made with disadvantage, but deal double damage on a hit."
-        ),
-    },
-    {
-        "Cantraps": "Produce minor, non-damaging magical effects at will.",
-    },
-    {
-        "Diehard": (
-            "The first time you fall to 0 hit points in a given day, you immediately gain "
-            "1 hit point back and don't lose consciousness."
-        ),
-    },
-    {
-        "Healing": (
-            "As an action, you can make a check to heal an ally other than yourself. "
-            "On a success, the target creature is healed for 2 hit points. Alternatively, "
-            "this ability can also be used to cure poison, disease, and other physical "
-            "ailments that are non-magical. You must touch the recipient to perform the healing."
-        ),
-    },
-    {
-        "Read Magic": (
-            "Ability to discern arcane writing and cast spells from scrolls. When this ability "
-            "is gained, the character also gains two randomly determined scrolls (see Magic)."
-        ),
-    },
-    {
-        "Repel Undead": (
-            "On a successful check, you add the total of the two dice and turn away that many "
-            "hit points of undead creatures. May be attempted once per combat."
-        ),
-    },
-    {
-        "Vigilant": (
-            "Whenever your side loses initiative, make a check. If the check is successful, "
-            "you act first."
-        ),
-    },
-    {
-        "Wizardry": (
-            "Knowledge of and ability to cast three randomly determined spells (see Magic). "
-            "This ability may be taken multiple times, and three additional random spells "
-            "are learned each time."
-        ),
-    },
-    {
-        "Perceptive": (
-            "You have a chance to notice secret doors or other important yet subtle clues "
-            "that others would miss. The GM needs to make the checks for this, and may need "
-            "to be reminded from time to time that you have this ability."
-        ),
-    },
-    {
-        "Weapon Training": "You make combat checks with skill for a specific weapon group.",
-    },
-]
-
-base_equipment = [
-    "Rucksack",
-    "Rations (7)",
-    "Waterskin",
-    "Flint & Steel",
-    "Torches (6)",
-]
-clothing_items = [
-    "Helmet",
-    "Fine Cape",
-    "Stylish Hat",
-    "Hooded Woolen Cloak",
-    "Eye Patch",
-    "Bandit Mask",
-]
-equipment_a = [
-    "Lasso",
-    "Flask of Acid",
-    "Pouch of Marbles",
-    "Ball of Twine (100')",
-    "Flask of Oil (2)",
-    "Molotov Cocktail",
-]
-equipment_b = [
-    "Prybar",
-    "Whistle",
-    "Skeleton Key",
-    "Hammer, 10 Pitons",
-    "Spyglass",
-    "Lock Picks",
-]
-equipment_c = [
-    "10' Pole",
-    "Pouch of Sand",
-    "Compass",
-    "Jar of Lard",
-    "Pliers",
-    "Rope (50')",
-]
-light_melee_weapons = [
-    "Dagger",
-    "Stiletto",
-    "Hand Axe",
-    "Mace",
-    "Nunchaku",
-    "Sword",
-    "Quarterstaff",
-]
-heavy_melee_weapons = [
-    "Battle Axe",
-    "Double-Bladed Scimitar",
-    "Bat'leth",
-    "Greatclub",
-    "Glaive",
-    "Halberd",
-    "Polearm",
-    "Maul",
-    "Zweihänder",
-]
-ranged_weapons = [
-    "Crossbow, boltcase of 12 Bolts",
-    "Bow, quiver of 12 Arrows",
-    "Darts, bandolier of 12",
-    "Javelins, sheaf of 6",
-    "Shuriken, bandolier of 12",
-    "Sling, pouch of 12 Stones",
-]
 
 
 class D666Character:
@@ -233,12 +52,12 @@ class D666Character:
                 raise Exception(f"Invalid roll ({roll}) not between 1 and 6.")
 
     def get_skills(self):
-        _skills = random.sample(skills, k=self.skills_count)
+        _skills = random.sample(SKILLS, k=self.skills_count)
         return _skills
 
     def get_extraordinary_abilities(self):
         _extraordinary_abilities = random.sample(
-            extraordinary_abilities,
+            EXTRAORDINARY_ABILITIES,
             k=self.extraordinary_abilities_count,
         )
         return _extraordinary_abilities
@@ -275,28 +94,28 @@ class D666Character:
     def get_weapon(self):
         if self.has_weapon_training:
             if self.trained_weapon == "Light Melee":
-                weapon = random.choice(light_melee_weapons)
+                weapon = random.choice(LIGHT_MELEE_WEAPONS)
             elif self.trained_weapon == "Heavy Melee":
-                weapon = random.choice(heavy_melee_weapons)
+                weapon = random.choice(HEAVY_MELEE_WEAPONS)
             elif self.trained_weapon == "Ranged":
-                weapon = random.choice(ranged_weapons)
+                weapon = random.choice(RANGED_WEAPONS)
             elif self.trained_weapon == "Unarmed":
                 weapon = "Unarmed"
         else:
             weapon = random.choice(
-                light_melee_weapons + heavy_melee_weapons + ranged_weapons
+                LIGHT_MELEE_WEAPONS + HEAVY_MELEE_WEAPONS + RANGED_WEAPONS
             )
         return weapon
 
     def get_equipment(self):
         """Base equipment plus one item from each list."""
         equipment = []
-        equipment.extend(base_equipment)
+        equipment.extend(BASE_EQUIPMENT)
         for items in [
-            clothing_items,
-            equipment_a,
-            equipment_b,
-            equipment_c,
+            CLOTHING_ITEMS,
+            EQUIPMENT_A,
+            EQUIPMENT_B,
+            EQUIPMENT_C,
         ]:
             equipment.append(random.choice(items))
         return equipment
