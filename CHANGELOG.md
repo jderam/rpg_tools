@@ -14,12 +14,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rewrote Makefile with uv-based targets
 - Updated requires-python from >=3.8 to >=3.11
 - Updated .pre-commit-config.yaml to use ruff-pre-commit
+- Modernized type annotations to Python 3.11+ syntax
 
 ### Added
-- pytest test suite with 229 tests (86% coverage)
-- GitHub Actions CI workflow (test on Python 3.11–3.14)
-- GitHub Actions version-check workflow for PRs
+- pytest test suite with coverage
+- GitHub Actions CI workflows (test, version check, changelog check)
 - CHANGELOG.md
+
+### Removed
+- ASSH (Astonishing Swordsmen & Sorcerers of Hyperborea) module
+- D666 module
 
 ## [0.1.1] - 2024-01-01
 
