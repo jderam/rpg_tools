@@ -12,12 +12,6 @@ A collection of tools for use with tabletop RPGs for generating characters, equi
 | Frostgrave | `rpg_tools.frostgrave` | Spell data |
 | Misc Data | `rpg_tools.misc_data` | DCC occupations, Knave spells, Dying Earth spells, Zothique names |
 
-## Installation
-
-```bash
-pip install rpg_tools
-```
-
 ### Development Setup
 
 ```bash
