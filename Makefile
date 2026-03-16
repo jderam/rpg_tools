@@ -5,10 +5,10 @@ SHELL := bash
 .PHONY: help install sync lock format lint check test test-cov run_test_uvicorn
 
 install: ## Install all dependencies (including test and dev)
-	uv sync --all-extras
+	uv sync --frozen --all-extras
 
 sync: ## Sync dependencies from lockfile
-	uv sync
+	uv sync --frozen
 
 lock: ## Update the lockfile
 	uv lock

@@ -28,7 +28,7 @@ git clone https://github.com/jderam/rpg_tools.git
 cd rpg_tools
 
 # Install with all development dependencies
-uv sync --all-extras
+uv sync --frozen --all-extras
 
 # Install pre-commit hooks
 uv run pre-commit install
