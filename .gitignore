@@ -1,8 +1,9 @@
+.venv/
 .vscode/
 *__pycache__*
 .DS_Store
-.python-version
 build
 dist
-rpg_tools.egg-info
+pdf/
+*.egg-info
 temp/
