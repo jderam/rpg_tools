@@ -69,9 +69,7 @@ class PlayerCharacter:
         self.equipment = random.sample(items, k=6)
         self.armor = "Light Armor (AC 7)"
         self.ac = 7
-        self.weapons = random.sample(
-            light_weapons + heavy_weapons + ranged_weapons, k=2
-        )
+        self.weapons = random.sample(light_weapons + heavy_weapons + ranged_weapons, k=2)
         self.appearance = random.choice(appearances)
         self.physical_detail = random.choice(physical_details)
         self.background = random.choice(backgrounds)

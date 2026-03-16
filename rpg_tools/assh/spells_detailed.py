@@ -4,6 +4,6 @@ SPELLS = [
         "Level": [""],
         "Range": "",
         "Duration": "",
-        "Description": ("" "" ""),
+        "Description": (""),
     },
 ]

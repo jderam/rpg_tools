@@ -11,12 +11,9 @@ class_info = {
         },
         "Class Abilities": {
             "Heroic Fighting": (
-                "When fighting creatures of 1 HD or less, double number of attacks "
-                "per round"
+                "When fighting creatures of 1 HD or less, double number of attacks per round"
             ),
-            "Weapon Mastery (2)": (
-                "+1 to attack and damage rolls, increased attack rate"
-            ),
+            "Weapon Mastery (2)": ("+1 to attack and damage rolls, increased attack rate"),
         },
         "Alignment": "Any",
         "Armor Allowed": "Any",
@@ -72,9 +69,7 @@ class_info = {
             "Sorcery": 0,
         },
         "Class Abilities": {
-            "Agile": (
-                "+1 AC bonus when unarmored and unemcumbered (small shield allowed)"
-            ),
+            "Agile": ("+1 AC bonus when unarmored and unemcumbered (small shield allowed)"),
             "Backstab": (
                 "An attack from behind with a class 1 or 2 melee weapon with which "
                 "the thief is skilled. The target must be unaware of the attack. The "

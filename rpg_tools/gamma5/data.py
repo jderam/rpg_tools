@@ -218,9 +218,7 @@ mutations = {
     "Constrainer": "You can immobilize foes with the power of your mind.",
     "Darkvision": "You see in the dark within 60 feet of you.",
     "Deadly Eye Ray": "You can channel necrotic energy through your eyes.",
-    "Density Controller": (
-        "By altering your mass density, you can become tougher or quicker."
-    ),
+    "Density Controller": ("By altering your mass density, you can become tougher or quicker."),
     "Doppelganger": "You can temporarily split into two identical creatures.",
     "Dual Brain": "You shrug off the charmed, frightened or stunned condition easily.",
     "Dwarf": "You are really short.",
@@ -235,9 +233,7 @@ mutations = {
     "Formidable Intelligence": "+4 to Intelligence score.",
     "Formidable Strength": "+4 to Strength score.",
     "Formidable Wisdom": "+4 to Wisdom score.",
-    "Frenzied Strike": (
-        "When fighting with two weapons, add ability mod to second attack damage."
-    ),
+    "Frenzied Strike": ("When fighting with two weapons, add ability mod to second attack damage."),
     "Frostborn": "Deal extra 1d6 cold damage with melee attacks.",
     "Gamma Eyes": "Shoot radiation beams from your eyes.",
     "Gauss Spike": "Manipulate gravity to cause sudden bursts of force.",
@@ -247,9 +243,7 @@ mutations = {
     "Hypercognitive": "Give yourself advantage on a single check.",
     "Low-light Vision": "See in dim light as if it were bright light.",
     "Magnetic": "Attacks with metal weapons against you are prone to failure.",
-    "Mercurial": (
-        "You do not provoke opportunity attacks when moving away from enemies."
-    ),
+    "Mercurial": ("You do not provoke opportunity attacks when moving away from enemies."),
     "Mind Controller": "You can turn enemies against their allies!",
     "Myconid": "As a fungal creature, you can breathe spores.",
     "Natural Killer": "Score critical hits on rolls of 19 or 20; ouch!",
@@ -259,9 +253,7 @@ mutations = {
     "Poison Gas": "Burp a cloud of poison to damage nearby enemies.",
     "Poison Resistance": "You gain resistance to poison damage.",
     "Poisonous Quills": "You can shoot poisonous quills from your body.",
-    "Powerful Pheromones": (
-        "You have (an unfair) advantage on Charisma (Persuasion) checks."
-    ),
+    "Powerful Pheromones": ("You have (an unfair) advantage on Charisma (Persuasion) checks."),
     "Prescience": "Use prescience as a reaction to halve damage.",
     "Psychic Resistance": "You gain resistance to psychic damage.",
     "Psychopomp": "Absorb life force from nearby enemies.",
@@ -625,7 +617,7 @@ scavenged_junk = [
     "earphones",
     "snow boots",
     "printer",
-    f"toy {random.choice(['car','car','truck','airplane','helicopter','space shuttle'])}",  # noqa: E501
+    f"toy {random.choice(['car', 'car', 'truck', 'airplane', 'helicopter', 'space shuttle'])}",  # noqa: E501
     "matches",
     "mini fridge",
     "solar power generator",
@@ -656,7 +648,7 @@ scavenged_junk = [
     "rubber gloves",
     "binoculars",
     "DIY manual",
-    f"{random.choice(['ghost','ghost','zombie','zombie','witch','vampire'])} halloween costume",  # noqa: E501
+    f"{random.choice(['ghost', 'ghost', 'zombie', 'zombie', 'witch', 'vampire'])} halloween costume",  # noqa: E501
     "carpet",
     "box of diapers",
     "electric blender",
@@ -684,7 +676,7 @@ scavenged_junk = [
     "string of christmas lights (50')",
     "remote control",
     "air compressor",
-    f"bottle of {random.choice(['red','white'])} wine",
+    f"bottle of {random.choice(['red', 'white'])} wine",
     "tire iron",
     "trash can",
     "comic book",
@@ -692,7 +684,7 @@ scavenged_junk = [
     "toy water pistol",
     "bonsai tree",
     "boxing gloves",
-    f"package of {random.choice(['mint','mint','strawberry','strawberry','orange','banana'])} gum",  # noqa: E501
+    f"package of {random.choice(['mint', 'mint', 'strawberry', 'strawberry', 'orange', 'banana'])} gum",  # noqa: E501
     "wireless router",
     "electric fan",
     f"box of {roll_dice(2, 4)} cigars",

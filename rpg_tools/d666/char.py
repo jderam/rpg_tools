@@ -29,9 +29,7 @@ class D666Character:
         self.extraordinary_abilities_count: int = 1
         self.level_abilities()
         self.skills: List[Dict[str, str]] = self.get_skills()
-        self.extraordinary_abilities: List[
-            Dict[str, str]
-        ] = self.get_extraordinary_abilities()
+        self.extraordinary_abilities: List[Dict[str, str]] = self.get_extraordinary_abilities()
         self.special_ea_rules()
         self.weapon: str = self.get_weapon()
         self.equipment: List[str] = self.get_equipment()
@@ -84,12 +82,10 @@ class D666Character:
             )
         for ea in self.extraordinary_abilities:
             if list(ea.keys())[0] == "Weapon Training":
-                ea[f"Weapon Training ({self.trained_weapon})"] = ea.pop(
-                    "Weapon Training"
+                ea[f"Weapon Training ({self.trained_weapon})"] = ea.pop("Weapon Training")
+                ea[f"Weapon Training ({self.trained_weapon})"] = (
+                    f"You make {self.trained_weapon} combat checks as skilled."
                 )
-                ea[
-                    f"Weapon Training ({self.trained_weapon})"
-                ] = f"You make {self.trained_weapon} combat checks as skilled."
 
     def get_weapon(self):
         if self.has_weapon_training:
@@ -102,9 +98,7 @@ class D666Character:
             elif self.trained_weapon == "Unarmed":
                 weapon = "Unarmed"
         else:
-            weapon = random.choice(
-                LIGHT_MELEE_WEAPONS + HEAVY_MELEE_WEAPONS + RANGED_WEAPONS
-            )
+            weapon = random.choice(LIGHT_MELEE_WEAPONS + HEAVY_MELEE_WEAPONS + RANGED_WEAPONS)
         return weapon
 
     def get_equipment(self):
@@ -128,9 +122,7 @@ class D666Character:
         result = [x for x in single_occ if int(x[0]) == roll]
         if len(result) == 0:
             result = [
-                x
-                for x in range_occ
-                if int(x[0].split("-")[0]) <= roll <= int(x[0].split("-")[1])
+                x for x in range_occ if int(x[0].split("-")[0]) <= roll <= int(x[0].split("-")[1])
             ]
         assert len(result) == 1
         background = (

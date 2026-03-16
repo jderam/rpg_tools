@@ -1,64 +1,7 @@
-assh_magician_spells = {
-    1: [
-        "Alarm",
-        "Burning Hands",
-        "Charm Person",
-        "Dancing Lights",
-        "Dash",
-        "Decipher Language",
-        "Detect Magic",
-        "Enlargement",
-        "Feather Fall",
-        "Floating Disc",
-        "Friends",
-        "Grease",
-        "Hold Portal",
-        "Identify",
-        "Influence Normal Fire",
-        "Jump",
-        "Light",
-        "Magic Missile",
-        "Melt Ice",
-        "Mending",
-        "Message",
-        "Mount",
-        "Protection from Evil",
-        "Shield",
-        "Shocking Grasp",
-        "Shove",
-        "Sleep",
-        "Sorcerer Mark",
-        "Sorcerous Armour",
-        "Spider Climb",
-        "Unseen Servant",
-        "Ventriloquism",
-        "Write Spell",
-    ]
-}
-
-assh_cleric_spells = {
-    1: [
-        "Bless",
-        "Bless Oil or Water",
-        "Ceremony of Consecration",
-        "Cold Resistance",
-        "Command",
-        "Create Water",
-        "Cure Light Wounds",
-        "Detect Evil",
-        "Detect Magic",
-        "Detect Malady",
-        "Light",
-        "Magic Stone",
-        "Omen",
-        "Perceive Disguise",
-        "Precipitate",
-        "Protection from Evil",
-        "Purify Food and Drink",
-        "Remove Fear",
-        "Sanctuary",
-    ]
-}
+# I believe this is only the 1st-level spells. Need to add the rest.
+# Also will need to add a "level" field to each spell.
+# The Offensive/Defensive/Miscellaneous categories should be pulled out.
+# A few descriptions have big crazy tables in them, e.g. The Hypnotic Charm and Leuk-O's Vile Menagerie.
 
 dying_earth_spells = {
     "Offensive": [

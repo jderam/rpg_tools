@@ -115,9 +115,7 @@ class PlayerCharacter:
                     }
                 )
             elif m == "Greater Saving Throw":
-                save_options = [
-                    x for x in ["DEX", "CON", "INT"] if x not in self.save_profs
-                ]
+                save_options = [x for x in ["DEX", "CON", "INT"] if x not in self.save_profs]
                 self.save_profs.append(random.choice(save_options))
             elif m == "Horns":
                 self.weapons.append(
@@ -253,14 +251,10 @@ class PlayerCharacter:
         while rolls_counter > 0:
             roll = roll_dice(1, 100)
             if 1 <= roll <= 95:
-                equip_item = random.choice(
-                    [x for x in scavenged_junk if x not in equipment]
-                )
+                equip_item = random.choice([x for x in scavenged_junk if x not in equipment])
                 equipment.append(equip_item)
             elif 96 <= roll <= 99:
-                equip_item = random.choice(
-                    [x for x in ancient_gear if x not in equipment]
-                )
+                equip_item = random.choice([x for x in ancient_gear if x not in equipment])
                 equipment.append(equip_item)
             elif roll == 100:
                 rolls_counter += 2
