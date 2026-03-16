@@ -1,6 +1,5 @@
 from copy import deepcopy
 import random
-from typing import Optional
 
 from rpg_tools.tiny_dungeon.data import (
     races,
@@ -14,7 +13,7 @@ from rpg_tools.tiny_dungeon.data import (
 
 
 class PlayerCharacter:
-    def __init__(self, race: Optional[str] = None):
+    def __init__(self, race: str | None = None):
         if race:
             race = race.capitalize()
             if race in races:

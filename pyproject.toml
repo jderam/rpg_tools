@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=65.4.1", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "rpg_tools"
@@ -22,25 +22,21 @@ classifiers = [
 dynamic = [
     "version",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
 test = [
-    "black",
-    "flake8",
-    "tox",
     "pytest",
     "pytest-cov",
     "pytest-repeat",
-    "mypy",
+    "ruff",
 ]
 dev = [
     "fastapi",
     "ipython",
-    "pip-tools",
+    "mypy",
     "pre-commit",
-    "twine",
     "uvicorn",
 ]
 all = [
@@ -48,16 +44,11 @@ all = [
     "rpg_tools[dev]",
 ]
 
-[tool.setuptools.dynamic]
-version = {attr = "rpg_tools.__version__"}
+[tool.hatch.version]
+path = "rpg_tools/__init__.py"
 
-[tool.setuptools.packages.find]
-include = ["rpg_tools"]
-exclude = ["tests"]
-
-[tool.black]
-line-length = 88
-target-version = ["py39", "py310", "py311"]
+[tool.hatch.build.targets.wheel]
+packages = ["rpg_tools"]
 
 [tool.pytest.ini_options]
 addopts = "--cov=rpg_tools"
@@ -79,3 +70,15 @@ warn_return_any = true
 warn_unreachable = true
 warn_unused_configs = true
 no_implicit_reexport = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+
+[tool.ruff.lint.per-file-ignores]
+"rpg_tools/tiny_dungeon/data.py" = ["E501"]
+"rpg_tools/misc_data/knave_spells.py" = ["E501"]
+"rpg_tools/misc_data/dying_earth_spells.py" = ["E501"]

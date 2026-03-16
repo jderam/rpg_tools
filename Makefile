@@ -1,45 +1,36 @@
 .ONESHELL:
 SHELL := bash
 .DEFAULT_GOAL := help
-OS := $(shell uname)
 
-.PHONY: help test format lint rebuild_venv gen_requirements run_test_uvicorn
+.PHONY: help install sync lock format lint check test test-cov run_test_uvicorn
 
-PYTHON_VERSION=3.11.6
-VENV=rpg-tools
+install: ## Install all dependencies (including test and dev)
+	uv sync --frozen --all-extras
 
-test: 
-	echo "Not set up yet"
+sync: ## Sync dependencies from lockfile
+	uv sync --frozen
 
-format: ## Format python code using black
-	black .
+lock: ## Update the lockfile
+	uv lock
 
-lint: ## Run flake8 linter
-	flake8
+format: ## Format code with ruff
+	uv run ruff format .
 
-rebuild_venv: ## rebuild the virtualenv for this project using pyenv
-	pyenv install ${PYTHON_VERSION} --skip-existing
-	pyenv rehash
-	pyenv virtualenv-delete --force ${VENV}
-	pyenv virtualenv ${PYTHON_VERSION} ${VENV}
-	pyenv local ${VENV}
-	python -m pip install -U pip setuptools wheel pip-tools
-	python -m pip install -r requirements_all.txt
-	python -m pip install -e .
-	pre-commit install
-	pyenv rehash
+lint: ## Lint code with ruff
+	uv run ruff check .
 
-gen_requirements: ## Generate new requirements.txt files
-	python -m pip install --upgrade pip-tools
-	pip-compile --upgrade --output-file=requirements.txt pyproject.toml
-	pip-compile --upgrade --extra=dev --extra=test --output-file=requirements_all.txt pyproject.toml
-	pip-compile --upgrade --extra=test --output-file=requirements_test.txt pyproject.toml
+check: ## Run format check and lint
+	uv run ruff format --check .
+	uv run ruff check .
 
-sync_requirements: ## Use pip-sync to reinstall requirements
-	pip-sync --verbose requirements.txt requirements_dev.txt requirements_test.txt
+test: ## Run tests with pytest
+	uv run pytest
+
+test-cov: ## Run tests with coverage report
+	uv run pytest --cov=rpg_tools --cov-report=term-missing
 
 run_test_uvicorn: ## Run fastapi/uvicorn test server
-	uvicorn main:app --reload
+	uv run uvicorn main:app --reload
 
-help: ## Generate and display help info on make commands
-	grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+help: ## Show this help message
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
