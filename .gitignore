@@ -6,4 +6,5 @@ build
 dist
 pdf/
 *.egg-info
+.coverage
 temp/
