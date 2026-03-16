@@ -840,13 +840,13 @@ dev = [
     { name = "ipython", version = "9.11.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "mypy" },
     { name = "pre-commit" },
-    { name = "ruff" },
     { name = "uvicorn" },
 ]
 test = [
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-repeat" },
+    { name = "ruff" },
 ]
 
 [package.metadata]
@@ -866,7 +866,7 @@ requires-dist = [
     { name = "pytest-repeat", marker = "extra == 'all'" },
     { name = "pytest-repeat", marker = "extra == 'test'" },
     { name = "ruff", marker = "extra == 'all'" },
-    { name = "ruff", marker = "extra == 'dev'" },
+    { name = "ruff", marker = "extra == 'test'" },
     { name = "uvicorn", marker = "extra == 'all'" },
     { name = "uvicorn", marker = "extra == 'dev'" },
 ]
