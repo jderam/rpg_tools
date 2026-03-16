@@ -6,8 +6,6 @@ A collection of tools for use with tabletop RPGs for generating characters, equi
 
 | System | Module | Features |
 |--------|--------|----------|
-| Astonishing Swordsmen & Sorcerers of Hyperborea | `rpg_tools.assh` | Character generation |
-| D666 | `rpg_tools.d666` | Character generation |
 | Gamma Five | `rpg_tools.gamma5` | Character generation |
 | Maze Rats | `rpg_tools.maze_rats` | Character & spell generation |
 | Tiny Dungeon | `rpg_tools.tiny_dungeon` | Character generation |
@@ -37,19 +35,14 @@ uv run pre-commit install
 ## Usage
 
 ```python
-# Generate an ASSH character
-from rpg_tools.assh.char import PlayerCharacter
-pc = PlayerCharacter()
-print(pc.to_dict())
-
 # Generate a Maze Rats spell
 from rpg_tools.maze_rats.magic import generate_spell
 print(generate_spell())
 
-# Generate a D666 character at level 3
-from rpg_tools.d666.char import D666Character
-c = D666Character(level=3)
-print(c.to_dict())
+# Generate a Tiny Dungeon character
+from rpg_tools.tiny_dungeon.char import PlayerCharacter
+pc = PlayerCharacter()
+print(pc.to_dict())
 ```
 
 ## Development
