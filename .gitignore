@@ -4,6 +4,8 @@
 .DS_Store
 build
 dist
+docx/
+output/
 pdf/
 *.egg-info
 .coverage
