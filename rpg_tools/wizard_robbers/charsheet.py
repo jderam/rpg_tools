@@ -199,9 +199,7 @@ def _render_eas(eas: list[dict[str, str]]) -> str:
                 f'<span class="item-desc">{desc}</span>'
                 f"</div>"
             )
-    return '<div class="section-title">Extraordinary Abilities</div>\n' + "\n".join(
-        items
-    )
+    return '<div class="section-title">Extraordinary Abilities</div>\n' + "\n".join(items)
 
 
 def _render_spells(spells: list[dict[str, str]]) -> str:
